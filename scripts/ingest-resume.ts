@@ -15,10 +15,29 @@ import * as path from "path";
 // Load .env.local
 dotenv.config({ path: path.join(process.cwd(), ".env.local") });
 
+// Use service role key for seeding (bypasses RLS write restrictions)
+// This key is NEVER exposed to the browser — script-only use
 const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    process.env.SUPABASE_SERVICE_ROLE_KEY ?? process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );
+
+/** Convert "Aug 2025", "January 2024", "2024-08" etc → "YYYY-MM-DD" */
+function normaliseDate(raw: string | null): string | null {
+    if (!raw) return null;
+    // Already ISO format
+    if (/^\d{4}-\d{2}-\d{2}$/.test(raw)) return raw;
+    // Try native Date parse (works for "August 2025", "Aug 2025", etc.)
+    const d = new Date(`1 ${raw}`); // prepend day so "Aug 2025" → "1 Aug 2025"
+    if (!isNaN(d.getTime())) {
+        const y = d.getFullYear();
+        const m = String(d.getMonth() + 1).padStart(2, "0");
+        return `${y}-${m}-01`;
+    }
+    // Extract year only as last resort
+    const yearMatch = raw.match(/\d{4}/);
+    return yearMatch ? `${yearMatch[0]}-01-01` : null;
+}
 
 async function isTableEmpty(tableName: string): Promise<boolean> {
     const { count } = await supabase
@@ -45,13 +64,15 @@ async function main() {
     // ── Seed experience ──────────────────────────────────────────────────────
     if (await isTableEmpty("experience")) {
         if (resume.experience.length > 0) {
-            const rows = resume.experience.map((e) => ({
-                role: e.role,
-                company: e.company,
-                description: e.description,
-                start_date: e.startDate,
-                end_date: e.endDate,
-            }));
+            const rows = resume.experience
+                .map((e) => ({
+                    role: e.role,
+                    company: e.company,
+                    description: e.description,
+                    start_date: normaliseDate(e.startDate),
+                    end_date: normaliseDate(e.endDate),
+                }))
+                .filter((r) => r.start_date !== null); // skip rows with unparseable dates
             const { error } = await supabase.from("experience").insert(rows);
             if (error) console.error("❌ Experience seed failed:", error.message);
             else console.log(`✅ Seeded ${rows.length} experience entries.`);
