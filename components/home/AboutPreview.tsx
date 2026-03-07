@@ -5,14 +5,14 @@ import SectionHeader from "@/components/ui/SectionHeader";
 import AnimatedWrapper from "@/components/ui/AnimatedWrapper";
 
 const skills = [
-    "Python", "Machine Learning", "LangChain", "RAG",
-    "Streamlit", "SQL", "Pandas", "Computer Vision",
-    "Groq / LLM APIs", "Data Analysis", "FAISS", "Sentence Transformers",
+    "Python", "SQL", "Git", "Pandas", "NumPy", "Power BI", "MongoDB",
+    "Streamlit", "PyTorch", "Scikit-Learn", "RAG", "FAISS",
+    "Sentence Transformers", "Llama-3", "Prompt Engineering"
 ];
 
 const stats = [
     { label: "Projects Built", value: "8+" },
-    { label: "Years Learning", value: "2+" },
+    { label: "Data Science", value: "B.Sc" },
     { label: "Tech Stack", value: "15+" },
 ];
 
@@ -25,21 +25,19 @@ export default function AboutPreview() {
                 <AnimatedWrapper direction="left">
                     <SectionHeader
                         title="About Me"
-                        subtitle="Passionate about turning data into decisions and AI into tools."
+                        subtitle="Passionate data science student combining analytics and Generative AI."
                     />
                     <div className="space-y-4 text-muted text-base leading-relaxed">
                         <p>
                             I&apos;m a{" "}
                             <span className="text-text font-medium">
-                                Data Science & AI enthusiast
+                                Data Science Student
                             </span>{" "}
-                            based in India, building real-world intelligent systems — from RAG
-                            chatbots and LLM-powered assistants to data analytics dashboards and
-                            computer vision projects.
+                            currently pursuing my Bachelors of Science in Data Science at{" "}
+                            <span className="text-text font-medium">Kristu Jayanti College (Autonomous)</span>, Bengaluru.
                         </p>
                         <p>
-                            I love the intersection of data and intelligence: taking raw,
-                            messy information and making it useful through code.
+                            I build end-to-end data and AI solutions, transforming raw information into actionable insights through analysis, dashboards, and AI-assisted applications. I am driven by curiosity, rapid learning, and creating reliable, real-world solutions that deliver meaningful impact.
                         </p>
                     </div>
 

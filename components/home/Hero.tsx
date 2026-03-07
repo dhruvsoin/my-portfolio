@@ -55,7 +55,7 @@ export default function Hero() {
                     <motion.div variants={item}>
                         <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-accent/30 bg-accent/5 text-accent text-sm font-mono">
                             <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                            Open to opportunities
+                            Data Science Student
                         </span>
                     </motion.div>
 
@@ -81,15 +81,14 @@ export default function Hero() {
                                 color: "rgba(229,231,235,0.75)",
                             }}
                         >
-                            AI &amp; Data Science Builder
+                            Data &amp; AI Enthusiast | Continuous Learner
                         </p>
                     </motion.div>
 
                     {/* Description */}
                     <motion.div variants={item}>
                         <p className="text-muted text-base sm:text-lg leading-relaxed max-w-xl mx-auto">
-                            I build AI tools, data analysis systems, and intelligent
-                            assistants that transform raw information into useful insights.
+                            Passionate about leveraging AI and data to solve real-world problems. Experienced in building end-to-end AI applications using Generative AI and modern data science tools.
                         </p>
                     </motion.div>
 
