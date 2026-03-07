@@ -8,12 +8,12 @@ const socialLinks = [
         icon: Github,
     },
     {
-        href: "https://linkedin.com/in/dhruvsoin",
+        href: "https://www.linkedin.com/in/dhruv-soin",
         label: "LinkedIn",
         icon: Linkedin,
     },
     {
-        href: "mailto:dhruvsoin@gmail.com",
+        href: "mailto:info.dhruvsoin@gmail.com",
         label: "Email",
         icon: Mail,
     },
