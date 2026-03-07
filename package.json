@@ -4,21 +4,17 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "ts-node --project tsconfig.scripts.json scripts/ingest-resume.ts",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "ingest": "ts-node --project tsconfig.scripts.json scripts/ingest-resume.ts"
+    "lint": "eslint"
   },
   "dependencies": {
     "@octokit/rest": "^22.0.1",
     "@supabase/supabase-js": "^2.98.0",
     "clsx": "^2.1.1",
-    "dotenv": "^17.3.1",
     "framer-motion": "^12.35.1",
     "lucide-react": "^0.577.0",
     "next": "16.1.6",
-    "pdfjs-dist": "^5.5.207",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "tailwind-merge": "^3.5.0"
@@ -31,7 +27,6 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "tailwindcss": "^4",
-    "ts-node": "^10.9.2",
     "typescript": "^5"
   }
 }

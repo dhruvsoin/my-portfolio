@@ -13,8 +13,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  // Allow pdf-parse to be used in scripts (server-side only)
-  serverExternalPackages: ["pdf-parse"],
 };
 
 export default nextConfig;
