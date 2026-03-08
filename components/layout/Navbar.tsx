@@ -58,7 +58,7 @@ export default function Navbar() {
                         Dhruv Soin
                     </span>
                     <span className="hidden md:block text-muted font-mono text-xs uppercase tracking-widest">
-                        Data Scientist
+                        Data &amp; AI Enthusiast
                     </span>
                 </Link>
 
@@ -105,7 +105,7 @@ export default function Navbar() {
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.25, ease: "easeInOut" }}
-                        className="md:hidden border-t border-border/40 overflow-hidden"
+                        className="md:hidden border-t border-border overflow-hidden bg-bg"
                     >
                         <ul className="flex flex-col px-6 py-4 gap-1">
                             {navLinks.map((link, i) => (

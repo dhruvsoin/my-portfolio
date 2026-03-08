@@ -28,7 +28,7 @@ export default function AnimatedWrapper({
     inView: triggerInView = true,
 }: AnimatedWrapperProps) {
     const ref = useRef<HTMLDivElement>(null);
-    const isInView = useInView(ref, { once: true, margin: "-60px" });
+    const isInView = useInView(ref, { once: true, margin: "0px", amount: 0.1 });
 
     const variants = directionVariants[direction];
 
