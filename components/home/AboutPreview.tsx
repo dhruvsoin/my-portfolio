@@ -5,9 +5,17 @@ import SectionHeader from "@/components/ui/SectionHeader";
 import AnimatedWrapper from "@/components/ui/AnimatedWrapper";
 
 const skills = [
-    "Python", "SQL", "Git", "Pandas", "NumPy", "Power BI", "MongoDB",
-    "Streamlit", "PyTorch", "Scikit-Learn", "RAG", "FAISS",
-    "Sentence Transformers", "Llama-3", "Prompt Engineering"
+    // Languages
+    "Python", "SQL", "R (basics)", "Git",
+    // Data Science & Visualization
+    "Pandas", "NumPy", "Scikit-Learn", "PyTorch", "Seaborn", "Matplotlib", "Jupyter", "Power BI", "Excel",
+    // Gen AI & LLMs
+    "OpenAI", "Groq", "Llama-3", "LangChain", "LangGraph", "HuggingFace", "Transformers",
+    "Sentence Transformers", "FAISS", "RAG Pipelines", "Agentic AI", "Prompt Engineering",
+    // Databases & Vector Stores
+    "MongoDB", "PostgreSQL", "Supabase", "Firebase", "Pinecone", "Redis",
+    // Tools & Infra
+    "Streamlit", "FastAPI", "Docker", "MLflow", "GitHub Actions", "AWS", "Vercel",
 ];
 
 export default function AboutPreview() {

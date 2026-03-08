@@ -14,10 +14,11 @@ export const metadata: Metadata = {
 };
 
 const skills = {
-    "Languages": ["Python", "SQL", "R (basics)"],
-    "Data & ML": ["Pandas", "NumPy", "Scikit-Learn", "PyTorch", "Seaborn", "Matplotlib"],
-    "Gen AI & LLMs": ["Llama-3", "RAG Pipelines", "FAISS", "Sentence Transformers", "Prompt Engineering"],
-    "Tools & Infra": ["Git", "Streamlit", "Power BI", "MongoDB", "FastAPI"],
+    "Languages": ["Python", "SQL", "R (basics)", "Git"],
+    "Data Science & Visualization": ["Pandas", "NumPy", "Scikit-Learn", "PyTorch", "Seaborn", "Matplotlib", "Jupyter", "Power BI", "Excel"],
+    "Gen AI & LLMs": ["OpenAI", "Groq", "Llama-3", "LangChain", "LangGraph", "HuggingFace", "Transformers", "Sentence Transformers", "FAISS", "RAG Pipelines", "Agentic AI", "Prompt Engineering"],
+    "Databases & Vector Stores": ["MongoDB", "PostgreSQL", "Supabase", "Firebase", "Pinecone", "Redis"],
+    "Tools & Infra": ["Streamlit", "FastAPI", "Docker", "MLflow", "GitHub Actions", "AWS", "Vercel"],
 };
 
 const interests = [
