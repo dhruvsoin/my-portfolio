@@ -9,8 +9,13 @@ import { formatDate } from "@/utils/formatDate";
 export const revalidate = 3600;
 
 export async function generateStaticParams() {
-    const projects = await getAllProjects();
-    return projects.map((p) => ({ id: p.id }));
+    try {
+        const projects = await getAllProjects();
+        return projects.map((p) => ({ id: p.id }));
+    } catch {
+        // Supabase env vars not set at build time — pages will be rendered on demand
+        return [];
+    }
 }
 
 export async function generateMetadata({
