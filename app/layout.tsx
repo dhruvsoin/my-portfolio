@@ -61,6 +61,11 @@ export const metadata: Metadata = {
     description:
       "AI & Data Science builder creating intelligent tools and data systems.",
   },
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
   robots: {
     index: true,
     follow: true,
