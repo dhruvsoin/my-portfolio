@@ -28,9 +28,9 @@ export default function SectionHeader({
                     align === "center" && "justify-center"
                 )}
             >
-                <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
+                <span className="w-2 h-2 rounded-full bg-text flex-shrink-0" />
                 <h2
-                    className="text-2xl sm:text-3xl font-bold text-text tracking-tight"
+                    className="text-3xl sm:text-4xl font-bold text-text tracking-tight"
                     style={{ fontFamily: "var(--font-heading)" }}
                 >
                     {title}
@@ -44,8 +44,8 @@ export default function SectionHeader({
                     align === "center" && "justify-center"
                 )}
             >
-                <span className="h-px w-12 bg-accent rounded-full" />
-                <span className="h-px flex-1 max-w-xs bg-border/40 rounded-full" />
+                <span className="h-px w-12 bg-text rounded-full" />
+                <span className="h-px flex-1 max-w-xs bg-border rounded-full" />
             </div>
 
             {/* Subtitle */}

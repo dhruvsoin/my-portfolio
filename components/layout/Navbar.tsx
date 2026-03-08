@@ -30,9 +30,7 @@ export default function Navbar() {
     }, []);
 
     // Close menu on route change
-    useEffect(() => {
-        setIsOpen(false);
-    }, [pathname]);
+    useEffect(() => { setIsOpen(false); }, [pathname]);
 
     const isActive = (href: string) =>
         href === "/" ? pathname === "/" : pathname.startsWith(href);
@@ -43,48 +41,43 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
             className={cn(
-                "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-                "glass border-b border-border/40",
-                scrolled && "shadow-lg shadow-black/20"
+                "fixed top-0 left-0 z-50 transition-all duration-500",
+                "w-full h-16 md:w-[280px] md:h-screen md:border-r md:border-border bg-bg/95 backdrop-blur-md",
+                scrolled && "shadow-sm md:shadow-none border-b border-border md:border-b-0"
             )}
         >
-            <nav className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+            <nav className="flex items-center md:items-start md:flex-col justify-between md:justify-start gap-8 px-6 md:px-10 h-16 md:h-full md:py-16">
 
                 {/* Logo */}
                 <Link
                     href="/"
-                    className="flex items-center gap-2 group"
+                    className="flex flex-col gap-1 group"
                     aria-label="Dhruv Soin — Home"
                 >
-                    <span className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center text-white text-sm font-bold font-mono transition-all duration-200 group-hover:bg-accent-hover group-hover:scale-105">
-                        DS
-                    </span>
-                    <span className="hidden sm:block text-text font-semibold text-sm tracking-tight" style={{ fontFamily: "var(--font-heading)" }}>
+                    <span className="text-text font-bold text-2xl tracking-tighter" style={{ fontFamily: "var(--font-heading)" }}>
                         Dhruv Soin
+                    </span>
+                    <span className="hidden md:block text-muted font-mono text-xs uppercase tracking-widest">
+                        Data Scientist
                     </span>
                 </Link>
 
                 {/* Desktop nav */}
-                <ul className="hidden md:flex items-center gap-1">
+                <ul className="hidden md:flex flex-col items-start gap-2 mt-8 w-full">
                     {navLinks.map((link) => (
-                        <li key={link.href}>
+                        <li key={link.href} className="w-full">
                             <Link
                                 href={link.href}
                                 className={cn(
-                                    "relative px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200",
+                                    "relative block w-full py-2.5 px-4 rounded-xl text-sm font-medium transition-all duration-300",
                                     isActive(link.href)
-                                        ? "text-accent"
-                                        : "text-muted hover:text-text hover:bg-surface/60"
+                                        ? "glass text-text font-bold shadow-sm"
+                                        : "text-muted hover:text-text hover:bg-surface"
                                 )}
                             >
-                                {link.label}
-                                {isActive(link.href) && (
-                                    <motion.span
-                                        layoutId="activeNav"
-                                        className="absolute bottom-0 left-3 right-3 h-0.5 bg-accent rounded-full"
-                                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                                    />
-                                )}
+                                <span className={cn("relative z-10", isActive(link.href) && "tracking-wide")}>
+                                    {link.label}
+                                </span>
                             </Link>
                         </li>
                     ))}
@@ -96,9 +89,9 @@ export default function Navbar() {
                     onClick={() => setIsOpen((o) => !o)}
                     aria-label={isOpen ? "Close menu" : "Open menu"}
                     aria-expanded={isOpen}
-                    className="md:hidden p-2 rounded-lg text-muted hover:text-text hover:bg-surface/60 transition-colors duration-200"
+                    className="md:hidden p-2 text-text transition-colors duration-200"
                 >
-                    {isOpen ? <X size={20} /> : <Menu size={20} />}
+                    {isOpen ? <X size={24} strokeWidth={1.5} /> : <Menu size={24} strokeWidth={1.5} />}
                 </button>
             </nav>
 

@@ -30,10 +30,10 @@ export default function AchievementCard({ achievement }: AchievementCardProps) {
     const barColor = categoryColors[category] ?? categoryColors.other;
 
     return (
-        <div className="relative flex gap-4 p-5 rounded-xl border border-border/60 bg-surface/40 hover:border-accent/30 hover:bg-surface/70 transition-all duration-300 group">
+        <div className="relative flex gap-5 p-6 rounded-2xl glass transition-all duration-300 card-hover group cursor-pointer">
 
             {/* Left accent bar */}
-            <div className={cn("w-1 rounded-full flex-shrink-0 self-stretch", barColor)} />
+            <div className={cn("w-1.5 rounded-full flex-shrink-0 self-stretch opacity-70 group-hover:opacity-100 transition-opacity", barColor)} />
 
             {/* Content */}
             <div className="flex-1 min-w-0">

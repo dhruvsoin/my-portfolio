@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dhruv Soin — Portfolio
 
-## Getting Started
+Personal portfolio website built with **Next.js 16**, **Tailwind CSS v4**, and **Supabase**.
 
-First, run the development server:
+Live site → [dhruvsoin.vercel.app](https://dhruvsoin.vercel.app) *(update once deployed)*
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 16 (App Router) |
+| Styling | Tailwind CSS v4 + vanilla CSS design tokens |
+| Animations | Framer Motion |
+| Database | Supabase (PostgreSQL) |
+| Email | Resend API |
+| GitHub API | Octokit REST |
+| Deployment | Vercel |
+| CI/CD | GitHub Actions |
+
+---
+
+## Project Structure
+
+```
+app/
+  page.tsx              # Home
+  about/page.tsx        # About
+  projects/page.tsx     # Projects list
+  projects/[id]/        # Project detail
+  achievements/page.tsx # Achievements
+  experience/page.tsx   # Experience
+  lab/page.tsx          # Lab / Experiments
+  contact/page.tsx      # Contact form
+  api/contact/route.ts  # Contact form API (Resend)
+components/
+  layout/               # Navbar, Footer
+  home/                 # Hero, AboutPreview, FeaturedProjects, etc.
+  projects/             # ProjectCard
+  achievements/         # AchievementCard
+  github/               # GitHubStats
+  ui/                   # Badge, SectionHeader, AnimatedWrapper
+lib/supabase/           # Supabase client + server helpers + queries
+utils/                  # Types, formatDate, cn
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Local Development
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# 1. Clone
+git clone https://github.com/dhruvsoin/dhruv-portfolio.git
+cd dhruv-portfolio
 
-## Learn More
+# 2. Install
+npm install
 
-To learn more about Next.js, take a look at the following resources:
+# 3. Environment variables — copy the example and fill in your values
+cp .env.example .env.local
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# 4. Run dev server
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Open [http://localhost:3000](http://localhost:3000)
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Environment Variables
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Variable | Where to get it |
+|---|---|
+| `NEXT_PUBLIC_SUPABASE_URL` | Supabase → Project Settings → API |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase → Project Settings → API |
+| `SUPABASE_SERVICE_ROLE_KEY` | Supabase → Project Settings → API |
+| `GITHUB_TOKEN` | GitHub → Settings → Developer settings → Personal access tokens |
+| `RESEND_API_KEY` | [resend.com](https://resend.com) → API Keys |
+
+---
+
+## Deployment (Vercel)
+
+1. Push repo to GitHub
+2. Go to [vercel.com/new](https://vercel.com/new) and import the repo
+3. Add all environment variables from the table above
+4. Deploy — Vercel auto-detects Next.js
+
+CI runs on every push to `main` via `.github/workflows/ci.yml` (lint → type-check → build).

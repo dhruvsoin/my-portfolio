@@ -35,7 +35,7 @@ export default async function FeaturedProjects() {
                     <Link
                         href="/projects"
                         id="featured-view-all"
-                        className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border text-muted hover:text-text hover:border-accent/50 font-medium text-sm transition-all duration-200 hover:scale-[1.02] group"
+                        className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass font-medium text-sm hover:bg-surface hover:scale-105 transition-all duration-300 group"
                     >
                         View all projects
                         <ArrowRight

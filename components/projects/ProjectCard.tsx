@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Github, ExternalLink, Star } from "lucide-react";
+import { Github, ExternalLink, Star, ArrowRight } from "lucide-react";
 import Badge from "@/components/ui/Badge";
 import { cn } from "@/utils/cn";
 import type { Project } from "@/utils/types";
@@ -25,15 +25,13 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         >
             <div
                 className={cn(
-                    "h-full flex flex-col p-6 rounded-xl border transition-all duration-300",
-                    "bg-surface/50 border-border/60",
-                    "hover:border-accent/40 hover:bg-surface/80 hover:shadow-xl hover:shadow-accent/5",
-                    "hover:-translate-y-1"
+                    "h-full flex flex-col p-6 rounded-2xl glass transition-all duration-300",
+                    "card-hover"
                 )}
             >
                 {/* Featured badge */}
                 {featured && (
-                    <span className="absolute top-4 right-4 flex items-center gap-1 text-[10px] font-mono text-accent bg-accent/10 border border-accent/20 px-2 py-0.5 rounded-full">
+                    <span className="absolute top-4 right-4 flex items-center gap-1.5 text-[11px] font-medium tracking-wide text-bg bg-text px-2.5 py-1 rounded-full shadow-sm">
                         <Star size={10} fill="currentColor" /> Featured
                     </span>
                 )}
@@ -56,11 +54,11 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                 {/* Tech stack */}
                 {tech_stack && tech_stack.length > 0 && (
                     <div className="flex flex-wrap gap-1.5 mb-5">
-                        {tech_stack.slice(0, 5).map((tech) => (
+                        {tech_stack.slice(0, 4).map((tech) => (
                             <Badge key={tech} label={tech} />
                         ))}
-                        {tech_stack.length > 5 && (
-                            <Badge label={`+${tech_stack.length - 5}`} variant="outline" />
+                        {tech_stack.length > 4 && (
+                            <Badge label={`+${tech_stack.length - 4} more`} variant="outline" />
                         )}
                     </div>
                 )}
@@ -74,9 +72,9 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                             rel="noopener noreferrer"
                             onClick={(e) => e.stopPropagation()}
                             aria-label={`${title} GitHub`}
-                            className="flex items-center gap-1.5 text-xs text-muted hover:text-text transition-colors duration-200"
+                            className="flex items-center gap-1.5 text-xs text-muted hover:text-text transition-colors duration-200 font-mono"
                         >
-                            <Github size={14} /> Code
+                            <Github size={13} /> Code
                         </a>
                     )}
                     {demo_link && (
@@ -86,16 +84,17 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                             rel="noopener noreferrer"
                             onClick={(e) => e.stopPropagation()}
                             aria-label={`${title} Demo`}
-                            className="flex items-center gap-1.5 text-xs text-muted hover:text-accent transition-colors duration-200"
+                            className="flex items-center gap-1.5 text-xs text-muted hover:text-accent transition-colors duration-200 font-mono"
                         >
-                            <ExternalLink size={14} /> Demo
+                            <ExternalLink size={13} /> Live
                         </a>
                     )}
                     <Link
                         href={`/projects/${id}`}
-                        className="ml-auto text-xs text-muted hover:text-accent transition-colors duration-200 font-mono"
+                        className="ml-auto flex items-center gap-1 text-xs text-muted hover:text-text transition-colors duration-200 font-mono group/link"
                     >
-                        Details →
+                        Details
+                        <ArrowRight size={11} className="group-hover/link:translate-x-0.5 transition-transform duration-200" />
                     </Link>
                 </div>
             </div>

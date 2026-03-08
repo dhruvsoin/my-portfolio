@@ -2,13 +2,19 @@
 
 /* ─── Design Tokens ───────────────────────────────────────────── */
 :root {
-  --bg: #0f172a;
-  --surface: #1e293b;
-  --border: #334155;
-  --accent: #6366f1;
-  --accent-hover: #818cf8;
-  --text: #e5e7eb;
-  --muted: #94a3b8;
+  --bg: #111111;
+  /* Rich Charcoal */
+  --surface: #1a1a1a;
+  /* Raised Charcoal surface */
+  --border: #2e2e2e;
+  /* Subtle border */
+  --accent: #e5b567;
+  /* Champagne Gold */
+  --accent-hover: #c49952;
+  --text: #fcfcfc;
+  /* Crisp white */
+  --muted: #8f8f8f;
+  /* Elegant gray */
 }
 
 /* ─── Tailwind v4 Theme Extension ─────────────────────────────── */
@@ -48,7 +54,7 @@ body {
 /* ─── Selection ───────────────────────────────────────────────── */
 ::selection {
   background-color: var(--accent);
-  color: #fff;
+  color: var(--bg);
 }
 
 /* ─── Scrollbar (webkit) ──────────────────────────────────────── */
@@ -78,24 +84,32 @@ body {
 
 /* ─── Utility ─────────────────────────────────────────────────── */
 .gradient-text {
-  background: linear-gradient(135deg, var(--accent) 0%, #a5b4fc 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--accent);
+}
+
+.noise-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E");
 }
 
 .glass {
-  background: rgba(30, 41, 59, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(51, 65, 85, 0.6);
+  background: var(--surface);
+  border: 1px solid var(--border);
 }
 
 .card-hover {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card-hover:hover {
-  transform: scale(1.015);
-  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.15);
+  transform: translateY(-4px);
+  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.06);
+  border-color: var(--border);
 }

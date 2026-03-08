@@ -1,4 +1,4 @@
-name: CI — Lint · Typecheck · Build
+name: CI — Lint, Type-check & Build
 
 on:
   push:
@@ -8,34 +8,43 @@ on:
 
 jobs:
   ci:
-    name: CI Pipeline
+    name: Lint · Type-check · Build
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
-      - name: Checkout
+      # ── 1. Checkout ────────────────────────────────────────────────
+      - name: Checkout repository
         uses: actions/checkout@v4
 
+      # ── 2. Node.js ────────────────────────────────────────────────
       - name: Setup Node.js 20
         uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: "npm"
 
+      # ── 3. Install ────────────────────────────────────────────────
       - name: Install dependencies
         run: npm ci
 
-      - name: Lint
+      # ── 4. Lint ───────────────────────────────────────────────────
+      - name: ESLint
         run: npm run lint
 
-      - name: Type check
+      # ── 5. Type-check ─────────────────────────────────────────────
+      - name: TypeScript type-check
         run: npx tsc --noEmit
 
-      - name: Build
+      # ── 6. Build ──────────────────────────────────────────────────
+      # Vercel deploys automatically on push to main.
+      # This build step serves as a pre-flight check so broken builds
+      # are caught in CI before Vercel ever attempts a deploy.
+      - name: Next.js build
         run: npm run build
         env:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           GITHUB_TOKEN: ${{ secrets.GH_API_TOKEN }}
-
-# Vercel deploys automatically when CI passes via the Vercel GitHub integration.
-# No separate deploy step is needed here.
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}

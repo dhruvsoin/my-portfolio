@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
 // ─── Fonts ────────────────────────────────────────────────────────────────────
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-heading",
-  weight: ["500", "600", "700"],
-  display: "swap",
-});
-
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-body",
   weight: ["400", "500"],
+  display: "swap",
+});
+
+const fontHeading = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-heading",
+  weight: ["500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -77,12 +77,15 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable}`}
+      className={`${fontHeading.variable} ${inter.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="antialiased min-h-screen flex flex-col">
+      <body className="antialiased min-h-screen bg-bg text-text">
+        <div className="noise-bg" />
         <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <div className="flex flex-col min-h-screen md:pl-[280px]">
+          <main className="flex-1 w-full">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
