@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description: "Hackathons, awards, internships, and milestones achieved by Dhruv Soin.",
 };
 
-export const revalidate = 3600;
+export const revalidate = 60; // Revalidate every 60 seconds so new Supabase data appears quickly
 
 const categoryMeta: Record<string, { label: string; icon: React.ElementType; color: string }> = {
     hackathon: { label: "Hackathons", icon: Zap, color: "text-purple-400" },

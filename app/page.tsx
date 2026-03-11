@@ -6,7 +6,7 @@ import FeaturedProjects from "@/components/home/FeaturedProjects";
 import RecentAchievements from "@/components/home/RecentAchievements";
 import AnimatedWrapper from "@/components/ui/AnimatedWrapper";
 
-export const revalidate = 3600; // 1-hour ISR
+export const revalidate = 60; // Revalidate every 60 seconds so new Supabase data appears quickly
 
 export default function Home() {
   return (
