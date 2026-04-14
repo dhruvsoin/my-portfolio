@@ -2,7 +2,7 @@ import { getGitHubStats, GITHUB_USERNAME } from "@/lib/github";
 import { Github, Star, BookOpen, Code2, ExternalLink } from "lucide-react";
 import Link from "next/link";
 
-export const revalidate = 3600;
+export const revalidate = 300; // Refresh every 5 minutes
 
 const LANG_COLORS: Record<string, string> = {
     Python: "#3572A5",
@@ -111,7 +111,7 @@ export default async function GitHubStats() {
                 <div className="p-5 border border-border bg-surface">
                     <p className="text-xs font-mono text-muted tracking-widest uppercase mb-4">Recent Repos</p>
                     <div className="grid sm:grid-cols-2 gap-3">
-                        {stats.repos.slice(0, 6).map((repo) => (
+                        {stats.repos.map((repo) => (
                             <a
                                 key={repo.name}
                                 href={repo.html_url}

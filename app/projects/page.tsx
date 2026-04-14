@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     description: "A collection of AI, data science, and software projects built by Dhruv Soin.",
 };
 
-export const revalidate = 3600;
+export const revalidate = 60; // Revalidate every 60 seconds so new Supabase projects appear quickly
 
 export default async function ProjectsPage() {
     const projects = await getAllProjects();

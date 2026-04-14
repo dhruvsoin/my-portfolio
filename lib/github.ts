@@ -29,7 +29,7 @@ export async function getGitHubStats(): Promise<GitHubStats> {
     try {
         const { data: repos } = await octokit.repos.listForUser({
             username: GITHUB_USERNAME,
-            type: "owner",
+            type: "all", // "all" includes owned repos + forks (valid Octokit values: "all" | "owner" | "member")
             per_page: 100,
             sort: "updated",
         });
@@ -52,7 +52,7 @@ export async function getGitHubStats(): Promise<GitHubStats> {
             .slice(0, 5)
             .map(([language, count]) => ({ language, count }));
 
-        const repoList: RepoInfo[] = repos.slice(0, 6).map((r) => ({
+        const repoList: RepoInfo[] = repos.map((r) => ({
             name: r.name,
             description: r.description ?? null,
             html_url: r.html_url,
