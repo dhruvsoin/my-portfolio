@@ -30,6 +30,7 @@ export default function Navbar() {
     }, []);
 
     // Close menu on route change
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => { setIsOpen(false); }, [pathname]);
 
     const isActive = (href: string) =>
