@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Briefcase, Calendar, ArrowUpRight } from "lucide-react";
+import { Briefcase, Calendar } from "lucide-react";
 import { getAllExperience } from "@/lib/supabase/queries";
 import SectionHeader from "@/components/ui/SectionHeader";
 import AnimatedWrapper from "@/components/ui/AnimatedWrapper";

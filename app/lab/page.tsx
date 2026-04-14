@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { FlaskConical, ExternalLink, Calendar } from "lucide-react";
 import { getAllExperiments } from "@/lib/supabase/queries";
 import Badge from "@/components/ui/Badge";
