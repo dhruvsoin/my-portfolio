@@ -1,8 +1,16 @@
 import { Octokit } from "@octokit/rest";
 
+if (!process.env.GITHUB_TOKEN) {
+    console.warn(
+        "[GitHub] ⚠️  GITHUB_TOKEN is not set. Falling back to unauthenticated requests " +
+        "(60 req/hr rate limit). Add GITHUB_TOKEN to Vercel → Environment Variables."
+    );
+}
+
 const octokit = new Octokit({
-    auth: process.env.GITHUB_TOKEN,
+    auth: process.env.GITHUB_TOKEN, // undefined = unauthenticated (rate-limited on Vercel)
 });
+
 
 const GITHUB_USERNAME = "dhruvsoin"; // ← update to your actual GitHub username
 

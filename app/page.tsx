@@ -5,12 +5,15 @@ import AboutPreview from "@/components/home/AboutPreview";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
 import RecentAchievements from "@/components/home/RecentAchievements";
 import AnimatedWrapper from "@/components/ui/AnimatedWrapper";
+import HeroLoader from "@/components/home/HeroLoader";
 
 export const revalidate = 60; // Revalidate every 60 seconds so new Supabase data appears quickly
+
 
 export default function Home() {
   return (
     <>
+      <HeroLoader />
       <Hero />
       <AboutPreview />
       <FeaturedProjects />
