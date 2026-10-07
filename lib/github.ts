@@ -9,6 +9,12 @@ if (!process.env.GITHUB_TOKEN) {
 
 const octokit = new Octokit({
     auth: process.env.GITHUB_TOKEN, // undefined = unauthenticated (rate-limited on Vercel)
+    request: {
+        // Force Next.js to revalidate this data every 30 seconds so the portfolio syncs fast
+        fetch: (url: string, opts: RequestInit) => {
+            return fetch(url, { ...opts, next: { revalidate: 30 } });
+        },
+    },
 });
 
 
