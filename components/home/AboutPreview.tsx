@@ -36,16 +36,16 @@ export default function AboutPreview() {
                                 <MapPin size={11} /> Bengaluru, India
                             </span>
                             <span className="inline-flex items-center gap-1.5 text-xs font-mono text-muted bg-surface border border-border px-3 py-1.5 rounded-full">
-                                <GraduationCap size={11} /> Kristu Jayanti College
+                                <GraduationCap size={11} /> Kristu Jayanti (Deemed to be University)
                             </span>
                         </div>
                         <p>
                             I&apos;m a{" "}
                             <span className="text-text font-semibold">
-                                Data Science Student
+                                final year Data Science student
                             </span>{" "}
-                            currently pursuing my B.Sc at{" "}
-                            <span className="text-text font-semibold">Kristu Jayanti College (Autonomous)</span>.
+                            currently completing my B.Sc at{" "}
+                            <span className="text-text font-semibold">Kristu Jayanti (Deemed to be University)</span>.
                         </p>
                         <p>
                             I build end-to-end data and AI solutions — transforming raw information

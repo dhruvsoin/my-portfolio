@@ -32,7 +32,7 @@ const interests = [
 
 const education = {
     degree: "B.Sc in Data Science",
-    institution: "Kristu Jayanti College (Autonomous)",
+    institution: "Kristu Jayanti (Deemed to be University)",
     location: "Bengaluru, Karnataka",
     year: "2023 – Present",
 };
@@ -124,7 +124,7 @@ export default function AboutPage() {
                     </div>
                     <div className="space-y-5 text-muted text-base leading-relaxed">
                         <p>
-                            I&apos;m a <span className="text-text font-semibold">Data Science student</span> at Kristu Jayanti College,
+                            I&apos;m a <span className="text-text font-semibold">final year Data Science student</span> at Kristu Jayanti (Deemed to be University),
                             Bengaluru. From an early age, I was fascinated by patterns — whether in mathematics, sports statistics, or everyday data.
                             That curiosity naturally led me to data science.
                         </p>
