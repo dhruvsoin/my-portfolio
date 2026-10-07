@@ -16,7 +16,7 @@
 
 ## Overview
 
-A dark, neo-brutalist portfolio showcasing AI & Data Science projects, achievements, work experience, and lab experiments. Content is fully dynamic — managed via Supabase with ISR (Incremental Static Regeneration), so the live site stays up-to-date without a redeploy.
+A dark, neo-brutalist portfolio showcasing AI & Data Science projects, achievements, and work experience. Content is dynamic — achievements and experience are managed via Supabase, while projects are auto-synced directly from GitHub. Everything uses ISR (Incremental Static Regeneration), so the live site stays up-to-date without a redeploy.
 
 ---
 
@@ -27,7 +27,8 @@ A dark, neo-brutalist portfolio showcasing AI & Data Science projects, achieveme
 | **Framework** | Next.js 16 — App Router, React 19 |
 | **Styling** | Tailwind CSS v4 + custom CSS design tokens |
 | **Animations** | Framer Motion v12 |
-| **Database** | Supabase (PostgreSQL) |
+| **Database** | Supabase (PostgreSQL) — Achievements & Experience |
+| **Projects** | Auto-synced via GitHub REST API |
 | **Email** | Resend API |
 | **GitHub Stats** | Octokit REST |
 | **Deployment** | Vercel |
@@ -45,7 +46,6 @@ A dark, neo-brutalist portfolio showcasing AI & Data Science projects, achieveme
 | `/projects/[id]` | Individual project detail |
 | `/achievements` | Awards, hackathons, milestones — grouped by category |
 | `/experience` | Work history timeline |
-| `/lab` | Experiments & side builds |
 | `/contact` | Contact form + social links |
 
 ---
@@ -60,7 +60,6 @@ dhruv-portfolio/
 │   ├── projects/           # Projects list + [id] detail
 │   ├── achievements/       # Achievements page
 │   ├── experience/         # Experience timeline
-│   ├── lab/                # Lab / experiments
 │   ├── contact/            # Contact form
 │   └── api/contact/        # Contact API route (Resend)
 ├── components/

@@ -1,6 +1,7 @@
 import { ExternalLink } from "lucide-react";
 import Badge from "@/components/ui/Badge";
 import { formatDate } from "@/utils/formatDate";
+import GlowCard from "@/components/ui/GlowCard";
 import { cn } from "@/utils/cn";
 import type { Achievement } from "@/utils/types";
 
@@ -29,7 +30,8 @@ export default function AchievementCard({ achievement }: AchievementCardProps) {
     const barColor = categoryColors[category] ?? categoryColors.other;
 
     return (
-        <div className="relative flex gap-5 p-6 rounded-2xl glass transition-all duration-300 card-hover group cursor-pointer">
+        <GlowCard className="rounded-2xl h-full">
+            <div className="relative flex h-full gap-5 p-6 glass transition-all duration-300 card-hover group cursor-pointer">
 
             {/* Left accent bar */}
             <div className={cn("w-1.5 rounded-full flex-shrink-0 self-stretch opacity-70 group-hover:opacity-100 transition-opacity", barColor)} />
@@ -64,7 +66,8 @@ export default function AchievementCard({ achievement }: AchievementCardProps) {
                     <Badge label={category} variant={categoryVariants[category] ?? "outline"} />
                     <span className="text-xs text-muted/60 font-mono">{formatDate(date)}</span>
                 </div>
+                </div>
             </div>
-        </div>
+        </GlowCard>
     );
 }

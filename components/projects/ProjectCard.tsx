@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Github, ExternalLink, Star, ArrowRight } from "lucide-react";
 import Badge from "@/components/ui/Badge";
+import GlowCard from "@/components/ui/GlowCard";
 import { cn } from "@/utils/cn";
 import type { Project } from "@/utils/types";
 
@@ -23,7 +24,8 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
             transition={{ duration: 0.4, delay: index * 0.08, ease: "easeOut" }}
             className="group relative h-full"
         >
-            <div
+            <GlowCard className="h-full rounded-2xl">
+                <div
                 className={cn(
                     "h-full flex flex-col p-6 rounded-2xl glass transition-all duration-300",
                     "card-hover"
@@ -97,7 +99,8 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                         <ArrowRight size={11} className="group-hover/link:translate-x-0.5 transition-transform duration-200" />
                     </Link>
                 </div>
-            </div>
+                </div>
+            </GlowCard>
         </motion.div>
     );
 }

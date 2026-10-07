@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 import { ArrowRight, Github, Mail, Cpu, Database, BrainCircuit } from "lucide-react";
+import MatrixText from "@/components/ui/MatrixText";
+import MagneticButton from "@/components/ui/MagneticButton";
 
 const container: Variants = {
     hidden: {},
@@ -63,7 +65,7 @@ export default function Hero() {
                             className="text-6xl sm:text-7xl md:text-8xl lg:text-[120px] font-bold tracking-tighter leading-[0.9] text-text"
                             style={{ fontFamily: "var(--font-heading)" }}
                         >
-                            Dhruv Soin
+                            <MatrixText text="Dhruv Soin" delay={0.2} />
                         </h1>
                     </motion.div>
 
@@ -106,30 +108,36 @@ export default function Hero() {
                         variants={item}
                         className="flex flex-col sm:flex-row items-start gap-4 pt-6"
                     >
-                        <Link
-                            href="/projects"
-                            id="hero-view-projects"
-                            className="inline-flex items-center gap-2 px-8 py-4 bg-surface text-text font-bold text-sm hover:-translate-y-1 border-2 border-accent shadow-[4px_4px_0px_var(--accent)] hover:shadow-[6px_6px_0px_var(--accent)] transition-all duration-300 group"
-                        >
-                            View Projects
-                            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-200" />
-                        </Link>
-                        <Link
-                            href="https://github.com/dhruvsoin"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            id="hero-github"
-                            className="inline-flex items-center gap-2 px-8 py-4 bg-surface border-2 border-border text-text font-bold text-sm hover:border-accent hover:-translate-y-1 shadow-[4px_4px_0px_transparent] hover:shadow-[4px_4px_0px_var(--accent)] transition-all duration-300"
-                        >
-                            <Github size={18} /> GitHub
-                        </Link>
-                        <Link
-                            href="/contact"
-                            id="hero-contact"
-                            className="inline-flex items-center gap-2 px-8 py-4 bg-surface border-2 border-border text-text font-bold text-sm hover:border-accent hover:-translate-y-1 shadow-[4px_4px_0px_transparent] hover:shadow-[4px_4px_0px_var(--accent)] transition-all duration-300"
-                        >
-                            <Mail size={18} /> Contact
-                        </Link>
+                        <MagneticButton>
+                            <Link
+                                href="/projects"
+                                id="hero-view-projects"
+                                className="inline-flex items-center gap-2 px-8 py-4 bg-surface text-text font-bold text-sm hover:-translate-y-1 border-2 border-accent shadow-[4px_4px_0px_var(--accent)] hover:shadow-[6px_6px_0px_var(--accent)] transition-all duration-300 group"
+                            >
+                                View Projects
+                                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-200" />
+                            </Link>
+                        </MagneticButton>
+                        <MagneticButton>
+                            <Link
+                                href="https://github.com/dhruvsoin"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                id="hero-github"
+                                className="inline-flex items-center gap-2 px-8 py-4 bg-surface border-2 border-border text-text font-bold text-sm hover:border-accent hover:-translate-y-1 shadow-[4px_4px_0px_transparent] hover:shadow-[4px_4px_0px_var(--accent)] transition-all duration-300"
+                            >
+                                <Github size={18} /> GitHub
+                            </Link>
+                        </MagneticButton>
+                        <MagneticButton>
+                            <Link
+                                href="/contact"
+                                id="hero-contact"
+                                className="inline-flex items-center gap-2 px-8 py-4 bg-surface border-2 border-border text-text font-bold text-sm hover:border-accent hover:-translate-y-1 shadow-[4px_4px_0px_transparent] hover:shadow-[4px_4px_0px_var(--accent)] transition-all duration-300"
+                            >
+                                <Mail size={18} /> Contact
+                            </Link>
+                        </MagneticButton>
                     </motion.div>
 
                     {/* Quick stats row */}
