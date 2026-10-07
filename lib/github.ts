@@ -26,6 +26,9 @@ export interface RepoInfo {
     html_url: string;
     stargazers_count: number;
     language: string | null;
+    homepage: string | null;
+    topics: string[];
+    pushed_at: string | null;
 }
 
 export interface GitHubStats {
@@ -72,6 +75,9 @@ export async function getGitHubStats(): Promise<GitHubStats> {
             html_url: r.html_url,
             stargazers_count: r.stargazers_count ?? 0,
             language: r.language ?? null,
+            homepage: r.homepage ?? null,
+            topics: r.topics ?? [],
+            pushed_at: r.pushed_at ?? null,
         }));
 
         return {
