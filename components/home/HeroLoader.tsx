@@ -13,7 +13,17 @@ export default function HeroLoader() {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setVisible(false), 2000);
+    // Only show the loader once per session
+    const hasSeenLoader = sessionStorage.getItem("hasSeenLoader");
+    if (hasSeenLoader) {
+      setVisible(false);
+      return;
+    }
+
+    sessionStorage.setItem("hasSeenLoader", "true");
+    
+    // Increased timing: 2.5s delay + 1s fade out
+    const timer = setTimeout(() => setVisible(false), 3500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -42,7 +52,7 @@ export default function HeroLoader() {
         className="absolute left-1/2 -translate-x-1/2 text-xs font-mono tracking-[0.3em] uppercase text-muted"
         style={{ top: "calc(50% + 110px)", fontFamily: "var(--font-code)" }}
       >
-        dhruv<span className="text-accent">.</span>soin
+        dhruv soin
       </p>
     </div>
   );

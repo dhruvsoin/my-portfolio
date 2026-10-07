@@ -170,5 +170,5 @@ body {
 }
 
 .hero-loader-fade {
-  animation: fadeOutLoader 1.2s ease-out 0.8s forwards;
+  animation: fadeOutLoader 1s ease-out 2.5s forwards;
 }
