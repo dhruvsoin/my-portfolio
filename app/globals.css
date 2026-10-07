@@ -134,10 +134,10 @@ body {
   background: url('data:image/svg+xml;utf-8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 612 684"%3E%3Cpath fill="%23e5b567" d="M305.7 0L0 170.9v342.3L305.7 684 612 513.2V170.9L305.7 0z"/%3E%3Cpath fill="%23111111" d="M305.7 80.1l-233.6 131 233.6 131 234.2-131-234.2-131"/%3E%3C/svg%3E') no-repeat top center;
 }
 
-.t-box1 { animation: tetromino1 1.5s ease-out infinite; }
-.t-box2 { animation: tetromino2 1.5s ease-out infinite; }
-.t-box3 { animation: tetromino3 1.5s ease-out infinite; z-index: 2; }
-.t-box4 { animation: tetromino4 1.5s ease-out infinite; }
+.t-box1 { animation: tetromino1 3.5s ease-out infinite; }
+.t-box2 { animation: tetromino2 3.5s ease-out infinite; }
+.t-box3 { animation: tetromino3 3.5s ease-out infinite; z-index: 2; }
+.t-box4 { animation: tetromino4 3.5s ease-out infinite; }
 
 @keyframes tetromino1 {
   0%,  40%  { transform: translate(0,     0);    }
@@ -170,5 +170,5 @@ body {
 }
 
 .hero-loader-fade {
-  animation: fadeOutLoader 1s ease-out 2.5s forwards;
+  animation: fadeOutLoader 1s ease-out 4s forwards;
 }

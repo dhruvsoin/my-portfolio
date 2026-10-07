@@ -22,8 +22,8 @@ export default function HeroLoader() {
 
     sessionStorage.setItem("hasSeenLoader", "true");
     
-    // Increased timing: 2.5s delay + 1s fade out
-    const timer = setTimeout(() => setVisible(false), 3500);
+    // Increased timing: 4s delay + 1s fade out (slower animation)
+    const timer = setTimeout(() => setVisible(false), 5000);
     return () => clearTimeout(timer);
   }, []);
 
