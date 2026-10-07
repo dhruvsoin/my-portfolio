@@ -29,14 +29,6 @@ export interface Experience {
     end_date?: string | null;
 }
 
-export interface Experiment {
-    id: string;
-    title: string;
-    description: string;
-    tech_stack: string[];
-    link?: string | null;
-    date: string;
-}
 
 export interface BlogPost {
     id: string;

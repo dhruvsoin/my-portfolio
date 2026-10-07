@@ -3,7 +3,6 @@ import type {
     Project,
     Achievement,
     Experience,
-    Experiment,
 } from "@/utils/types";
 
 // ─── Projects ────────────────────────────────────────────────────────────────
@@ -101,18 +100,3 @@ export async function getAllExperience(): Promise<Experience[]> {
     return data ?? [];
 }
 
-// ─── Experiments ──────────────────────────────────────────────────────────────
-
-export async function getAllExperiments(): Promise<Experiment[]> {
-    const supabase = createServerClient();
-    const { data, error } = await supabase
-        .from("experiments")
-        .select("*")
-        .order("date", { ascending: false });
-
-    if (error) {
-        console.error("[Supabase] getAllExperiments:", error.message);
-        return [];
-    }
-    return data ?? [];
-}
