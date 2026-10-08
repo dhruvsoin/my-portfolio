@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
-import { ArrowRight, Github, Mail, Cpu, Database, BrainCircuit } from "lucide-react";
+import { ArrowRight, Github, Mail, Cpu, Database, BrainCircuit, FileText } from "lucide-react";
 import MatrixText from "@/components/ui/MatrixText";
 import MagneticButton from "@/components/ui/MagneticButton";
 
@@ -128,6 +128,17 @@ export default function Hero() {
                             >
                                 <Github size={18} /> GitHub
                             </Link>
+                        </MagneticButton>
+                        <MagneticButton>
+                            <a
+                                href="/resume.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                id="hero-resume"
+                                className="inline-flex items-center gap-2 px-8 py-4 bg-surface border-2 border-border text-text font-bold text-sm hover:border-accent hover:-translate-y-1 shadow-[4px_4px_0px_transparent] hover:shadow-[4px_4px_0px_var(--accent)] transition-all duration-300"
+                            >
+                                <FileText size={18} /> Resume
+                            </a>
                         </MagneticButton>
                         <MagneticButton>
                             <Link
